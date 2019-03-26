@@ -78,8 +78,10 @@ def type_link(type_, base_package):
         return type_
     package, base_type = resource_name(base_type)
     # always chain upwards to msg dir
-    return _href("../../../%(package)s/html/msg/%(base_type)s.html" % locals(), type_)
-
+    if str(package) == "ursa_msgs":
+        return _href("../../../../%(package)s/doc/html/msg/%(base_type)s.html" % locals(), type_)
+    else:
+        return _href("http://docs.ros.org/melodic/api/%(package)s/html/msg/%(base_type)s.html" % locals(), type_)
 
 def index_type_link(pref, type_, base_package):
     if type_ in genmsg.msgs.BUILTIN_TYPES:
