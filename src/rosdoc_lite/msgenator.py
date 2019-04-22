@@ -78,7 +78,7 @@ def type_link(type_, base_package):
         return type_
     package, base_type = resource_name(base_type)
     # always chain upwards to msg dir
-    if str(package) == "ursa_msgs":
+    if str(package) == "person_class_msgs":
         return _href("%(base_type)s.html" % locals(), type_)
         #return _href("../../../../%(package)s/doc/html/msg/%(base_type)s.html" % locals(), type_)
     else:
